@@ -4,11 +4,10 @@
 #include <stdbool.h>
 
 /* predefined */
-typedef struct {
-    float values[4][4];
-} Mat4x4;
+typedef struct { float values[3][3]; } Mat3x3;
+typedef struct { float values[4][4]; } Mat4x4;
 
-typedef struct  {
+typedef struct {
     int row, col;
     void *priv;
 } Matrix;
