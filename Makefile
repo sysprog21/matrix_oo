@@ -21,7 +21,7 @@ deps := $(addprefix $(OUT)/,$(deps))
 tests/test-%: $(OBJS) tests/test-%.c
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
-$(OUT)/%.o: %.c
+$(OUT)/%.o: %.c $(OUT)
 	$(CC) $(CFLAGS) -c -o $@ -MMD -MF $@.d $<
 
 $(OUT):
