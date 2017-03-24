@@ -8,15 +8,13 @@ typedef struct {
     float values[4][4];
 } Mat4x4;
 
-typedef struct __matrix_internal Matrix;
-struct __matrix_internal {
+typedef struct  {
     int row, col;
     void *priv;
-};
+} Matrix;
 
 typedef struct __matrix_algo MatrixAlgo;
 struct __matrix_algo {
-    /* operations */
     void (*assign)(Matrix *thiz, Mat4x4);
     bool (*equal)(const Matrix *l, const Matrix *r);
     bool (*mul)(Matrix *dst, const Matrix *l, const Matrix *r);
