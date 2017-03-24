@@ -1,15 +1,17 @@
 EXEC = \
-    tests/test-matrix
+    tests/test-matrix \
+    tests/test-stopwatch
 
 OUT ?= .build
 .PHONY: all
 all: $(OUT) $(EXEC)
 
 CC ?= gcc
-CFLAGS = -Wall -std=c99 -g -O0 -I.
+CFLAGS = -Wall -std=gnu99 -g -O0 -I.
 LDFLAGS = -lpthread
 
 OBJS := \
+	stopwatch.o \
 	matrix_naive.o
 
 deps := $(OBJS:%.o=%.o.d)
