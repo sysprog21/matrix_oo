@@ -10,6 +10,7 @@ extern struct __STOPWATCH_API__ {
     void (*start)(watch_p);
     void (*stop)(watch_p);
     void (*reset)(watch_p);
+
     double (*read)(watch_p);
 } Stopwatch;
 

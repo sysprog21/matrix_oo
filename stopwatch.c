@@ -46,8 +46,12 @@ static struct timespec time_add(struct timespec t1, struct timespec t2)
 void reset(watch_p Q)
 {
     Q->running = false;
-    Q->last_time = (struct timespec) { 0, 0 };
-    Q->total = (struct timespec) { 0, 0 };
+    Q->last_time = (struct timespec) {
+        0, 0
+    };
+    Q->total = (struct timespec) {
+        0, 0
+    };
 }
 
 watch_p create(void)

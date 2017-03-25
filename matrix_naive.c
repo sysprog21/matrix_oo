@@ -10,13 +10,13 @@ struct naive_priv {
 
 static void assign(Matrix *thiz, Mat4x4 data)
 {
-    /* FIXME: don't hardcode row, col */
+    /* FIXME: don't hardcode row & col */
     thiz->row = thiz->col = 4;
 
     thiz->priv = malloc(4 * 4 * sizeof(float));
     for (int i = 0; i < 4; i++)
         for (int j = 0; j < 4; j++)
-             PRIV(thiz)->values[i][j] = data.values[i][j];
+            PRIV(thiz)->values[i][j] = data.values[i][j];
 }
 
 static const float epsilon = 1 / 10000.0;
@@ -33,6 +33,7 @@ static bool equal(const Matrix *l, const Matrix *r)
 
 bool mul(Matrix *dst, const Matrix *l, const Matrix *r)
 {
+    /* FIXME: error hanlding */
     dst->priv = malloc(4 * 4 * sizeof(float));
     for (int i = 0; i < 4; i++)
         for (int j = 0; j < 4; j++)
