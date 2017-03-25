@@ -2,9 +2,14 @@ EXEC = \
     tests/test-matrix \
     tests/test-stopwatch
 
+GIT_HOOKS := .git/hooks/applied
 OUT ?= .build
 .PHONY: all
-all: $(OUT) $(EXEC)
+all: $(GIT_HOOKS) $(OUT) $(EXEC)
+
+$(GIT_HOOKS):
+	@scripts/install-git-hooks
+	@echo
 
 CC ?= gcc
 CFLAGS = -Wall -std=gnu99 -g -O0 -I.
