@@ -4,12 +4,10 @@
 #include <stdbool.h>
 
 /* predefined shortcut */
-typedef struct {
-    float values[3][3];
-} Mat3x3;
-typedef struct {
-    float values[4][4];
-} Mat4x4;
+#define DECLARE_MATRIX(col, row) \
+    typedef struct { float values[col][row]; } Mat ## col ## x ## row
+DECLARE_MATRIX(3, 3);
+DECLARE_MATRIX(4, 4);
 
 typedef struct {
     int row, col;
