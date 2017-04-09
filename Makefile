@@ -19,9 +19,8 @@ OBJS := \
 	stopwatch.o \
 	matrix_naive.o
 
-deps := $(OBJS:%.o=%.o.d)
 OBJS := $(addprefix $(OUT)/,$(OBJS))
-deps := $(addprefix $(OUT)/,$(deps))
+deps := $(OBJS:%.o=%.o.d)
 
 tests/test-%: $(OBJS) tests/test-%.c
 	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
